@@ -9,7 +9,9 @@ class SearchesController < ApplicationController
 
   # POST /searches or /searches.json
   def create
-    
+    last_record = Search.where(user_ip: request.remote_ip).last || Search.new(search_query: ' ')
+    if params[:search][:query].include? last_record.search_query
+      search_params = params.require(:search).permit(:search_query)
       @search = Search.new(search_params)
       @search.user_ip = request.remote_ip
       respond_to do |format|
@@ -20,5 +22,6 @@ class SearchesController < ApplicationController
           format.json { render json: @search.errors, status: :unprocessable_entity }
         end
       end
+    end
   end
 end
