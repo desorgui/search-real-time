@@ -1,0 +1,11 @@
+    <%= turbo_frame_tag "articles" do %>
+        <div id="articles-div" class="mx-16 d-flex flex-col gap-6">
+        <% if @articles.nil? || @articles.empty? %>
+            <p class="no-post">
+            Your search - <%= params[:query] %> - did not match any posts.
+            </p>
+        <% else %>
+            <%= render @articles %>
+        <% end %>
+        </div>
+    <% end %>

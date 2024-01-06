@@ -5,10 +5,6 @@
 <div id="searches">
   <% @searches.each do |search| %>
     <%= render search %>
-    <p>
-      <%= link_to "Show this search", search %>
-    </p>
   <% end %>
 </div>
 
-# <%= link_to "New search", new_search_path %>

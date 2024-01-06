@@ -1,0 +1,18 @@
+<nav class="w-full bottom-shadow-lg py-4">
+  <div class="d-flex justify-between mx-16 items-center">
+    <div class="d-flex gap-6 items-center">
+        <%= link_to 'Easy Search', root_path, class: 'text-xl text-decoration-none text-black logo' %>
+        <ul class="list-style-none d-flex gap-6">
+            <li>
+            <%= link_to "Posts", articles_path, class: "nav-link text-decoration-none text-black" %>
+            </li>
+            <li>
+            <%= link_to "History", searches_path, class: "nav-link text-decoration-none text-black" %>
+            </li>
+        </ul>
+    </div>
+    <section class="search-form mx-16">
+        <%= render 'components/search' %>
+    </section>
+  </div>
+</nav>

@@ -1,11 +1,11 @@
-<%= form_tag articles_path, method: :get, class: 'd-flex mb-5', data: { controller: "search-form", turbo_frame: "articles", turbo_action: "advance" } do %>
+<%= form_tag articles_path, method: :get, class: 'd-flex search', data: { controller: "search", turbo_frame: "articles", turbo_action: "advance" } do %>
     <%= text_field_tag :query,
       params[:query],
       autocomplete: "off",
-      class: "form-control",
+      class: "searchTerm",
       placeholder: "Search...",
-      data: { action: "input->search-form#search"}
+      data: { action: "input->search#search"}
     %>
-    <%= submit_tag "Search", id: "submit", class: "btn btn-primary" %>
+    <%= submit_tag "Search", id: "submitbtn", class: "searchButton" %>
   <% end %>
   
