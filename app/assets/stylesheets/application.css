@@ -110,3 +110,7 @@
     font-weight: 800;
     font-size: 1.5em;
   }
+
+  .capitalize::first-letter {
+    text-transform: capitalize;
+  }

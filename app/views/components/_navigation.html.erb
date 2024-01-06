@@ -12,7 +12,7 @@
         </ul>
     </div>
     <section class="search-form mx-16">
-        <%= render 'components/search' %>
+        <%= request.env['PATH_INFO'] == '/' || request.env['PATH_INFO'] == '/articles' ? render('components/search') : "" %>
     </section>
   </div>
 </nav>

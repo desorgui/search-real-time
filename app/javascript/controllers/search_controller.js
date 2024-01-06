@@ -9,7 +9,7 @@ export default class extends Controller {
 
     submit.addEventListener("click", () => {
       if (input.value.length > 3) {
-        this.postForm({ search_query: input.value, user_ip: ip.value })
+        this.postForm({ search_query: input.value.toLowerCase(), user_ip: ip.value })
       }
     });
 
