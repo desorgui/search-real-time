@@ -4,13 +4,16 @@ class SearchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /searches or /searches.json
   def index
-    @searches = Search.all
+    @searches = Search.where(user_ip: request.remote_ip).group(:search_query).order(count: :desc).count
   end
 
   # POST /searches or /searches.json
   def create
-    last_record = Search.where(user_ip: request.remote_ip).last || Search.new(search_query: ' ')
-    if params[:search][:query].include? last_record.search_query
+    recent_search = Search.where(user_ip: request.remote_ip).last || Search.new(search_query: ' ')
+    p params[:search]
+    if params[:search][:search_query].include? recent_search.search_query
+      recent_search.update(search_query: params[:search][:search_query])
+    else
       search_params = params.require(:search).permit(:search_query)
       @search = Search.new(search_params)
       @search.user_ip = request.remote_ip
@@ -20,6 +23,7 @@ class SearchesController < ApplicationController
           format.json { render @articles, status: :created, location: @searches }
         else
           format.json { render json: @search.errors, status: :unprocessable_entity }
+          p @search.errors
         end
       end
     end

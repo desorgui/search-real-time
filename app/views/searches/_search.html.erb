@@ -1,12 +1,13 @@
-<div id="<%= dom_id search %>">
+<div class="d-flex gap-6 justify-between mx-16">
   <p>
-    <strong>Search query:</strong>
-    <%= search.search_query %>
+    <strong>
+    <%= search[:title] %>
+    </strong>
   </p>
-
   <p>
-    <strong>User ip:</strong>
-    <%= search.user_ip %>
+    <strong>
+    <%= search[:count] %>
+    </strong>
   </p>
 
 </div>

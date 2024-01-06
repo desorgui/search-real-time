@@ -1,10 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Searches</h1>
+<h1 class="mx-16">Searches for user <%= request.remote_ip %></h1>
 
-<div id="searches">
-  <% @searches.each do |search| %>
-    <%= render search %>
+
+<%= turbo_frame_tag "searches" do %>
+  <% if @searches.nil? || @searches.empty? %>
+    <p class="no-post">
+      No searches yet.
+    </p>
+  <% else %>
+  <header class="searhes-list-header d-flex gap-6 mx-16 justify-between">
+    <h3>Searches query</h3>
+    <h3>Searches Repetition</h3>
+  </header>
+  <ul class="list-style-none d-flex flex-col gap-6">
+    <% @searches.entries.each do |title, count| %>
+          <li>
+            <%= render "search", search: {title:, count:} %>
+          </li>
+        <% end %>
+  </ul>
   <% end %>
-</div>
-
+<% end %>
