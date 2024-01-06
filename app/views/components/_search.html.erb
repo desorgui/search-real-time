@@ -6,6 +6,7 @@
       placeholder: "Search...",
       data: { action: "input->search#search"}
     %>
+    <%= hidden_field_tag :ip, @ip %>
     <%= submit_tag "Search", id: "submitbtn", class: "searchButton" %>
   <% end %>
   

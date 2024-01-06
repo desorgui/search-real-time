@@ -5,10 +5,11 @@ export default class extends Controller {
   connect() {
     const submit = document.getElementById("submitbtn");
     const input = document.getElementById("query");
+    const ip = document.getElementById("ip");
 
     submit.addEventListener("click", () => {
       if (input.value.length > 3) {
-        this.postForm({ search_query: input.value })
+        this.postForm({ search_query: input.value, user_ip: ip.value })
       }
     });
 
