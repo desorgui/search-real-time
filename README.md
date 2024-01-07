@@ -191,13 +191,6 @@ To run the project locally, follow these steps:
 - In the terminal run: `rails s`, that will run the server.
 
 - and Open the `http://localhost:3000` in your browser.
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
 
  ### :test_tube: Run tests <a name="Test"></a>
 To run unit and integration tests, run the following on the root project's directory:
