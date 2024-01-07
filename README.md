@@ -151,14 +151,6 @@ In order to run this project you need:
 - rails
 - A code Editor (VS Code, Sublime Text, ...)
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
 ### Setup <a name="setup"></a>
 
 Clone this repository to your desired folder:
