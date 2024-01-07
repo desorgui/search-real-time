@@ -1,5 +1,6 @@
 require 'socket'
 
+# Articles controller
 class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index

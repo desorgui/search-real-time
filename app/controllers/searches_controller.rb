@@ -1,5 +1,6 @@
 require 'socket'
 
+# Searches controller
 class SearchesController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /searches or /searches.json
