@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
   # GET /searches or /searches.json
   def index
     @ip = Socket.ip_address_list.detect(&:ipv4_private?).ip_address
-    @searches = Search.where(user_ip: @ip).group(:search_query).order(count: :desc).count
+    @searches = Search.group(:search_query).order(count: :desc).count
   end
 
   # POST /searches or /searches.json
